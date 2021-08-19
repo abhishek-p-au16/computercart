@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const secretkey = require('./secretkey.js')
+const jwt = require('express-jwt');
+const {secretkey} = process.env
 
 
 const authenticate = (req,res,next)=>{
@@ -17,4 +17,11 @@ const authenticate = (req,res,next)=>{
          }
       }
      
-module.exports = authenticate
+ module.exports = authenticate
+
+
+// exports.requirelogin = jwt({
+//     secret: process.env.secretkey,
+//     algorithms: ["HS256"], 
+//     userProperty: "auth",
+//   });

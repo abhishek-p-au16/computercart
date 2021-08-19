@@ -8,7 +8,7 @@ const upload  = require("../cloud/cloudinary")
 
 
 
-router.get("/view-products", (req, res) => {
+router.get("/view-products",(req, res) => {
   res.send("product list");
 });
 
@@ -17,7 +17,7 @@ router.get("/add-products", (req, res) => {
 });
 
 router.post("/add-products", async (req, res) => {
-//   try {
+
     product = req.body;
    
     const img = req.files.img.data
@@ -33,9 +33,13 @@ router.post("/add-products", async (req, res) => {
 
 
 
+
     product.img_url = url
     productHelper.addProduct(product)
     
 });
+
+
+
 
 module.exports = router;
